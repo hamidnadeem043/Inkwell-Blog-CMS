@@ -168,4 +168,9 @@ app.delete('/api/posts/:id', authMiddleware, (req, res) => {
   res.json({ message: 'Post deleted' });
 });
 
-app.listen(PORT, () => console.log(`Blog CMS API running on http://localhost:${PORT}`));
+
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => console.log(`Blog CMS API running on http://localhost:${PORT}`));
+}
+module.exports = app;
+
